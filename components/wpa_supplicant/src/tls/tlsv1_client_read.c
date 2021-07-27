@@ -364,7 +364,7 @@ static int tls_process_certificate(struct tlsv1_client *conn, u8 ct,
 		pos += cert_len;
 	}
 
-	if (conn->cred &&
+	if (conn->cred && g_wpa_ca_cert &&
 	    x509_certificate_chain_validate(conn->cred->trusted_certs, chain,
 					    &reason, conn->disable_time_checks)
 	    < 0) {
